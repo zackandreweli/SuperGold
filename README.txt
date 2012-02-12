@@ -1,0 +1,1 @@
+First commit of SuperGold. Documentation to come.
