@@ -1,0 +1,13 @@
+name: SuperGold
+main: com.voidzm.supergold.SuperGold
+description: SuperGold is a plugin to increase the uses of gold and make Nether materials obtainable with gold, as well as other features.
+author: voidzm
+version: 1.0.0
+permissions:
+  supergold.*:
+    description: Access to all SuperGold features, INCLUDING commands. Admins only.
+    children:
+      supergold.blocks: true
+  supergold.blocks:
+    description: Allow breaking of certain blocks with gold tools to drop Nether blocks.
+    default: op
