@@ -17,11 +17,11 @@ public class SuperGold extends JavaPlugin {
 	
 	public void onEnable() {
 		cfg = this.getConfig();
-		pluginManager = this.getServer().getPluginManager();
+		pluginManager =	 this.getServer().getPluginManager();
 		pluginManager.registerEvents(listener, this);
 		logObj.info("[SuperGold] v1.0.0 enabled!");
 		if(!cfg.contains("block.netherrack.enabled")) {
-			writeDefaultConfig();
+			this.writeDefaultConfig();
 		}
 	}
 	
@@ -57,7 +57,20 @@ public class SuperGold extends JavaPlugin {
 		cfg.set("block.glowstone.tool", glowstoneList);
 		cfg.set("block.glowstone.drop.min", 2);
 		cfg.set("block.glowstone.drop.max", 4);
+		cfg.set("ice.enabled", true);
+		List<Integer> iceList = new ArrayList<Integer>();
+		iceList.add(new Integer(285));
+		cfg.set("ice.tool", iceList);
+		cfg.set("ice.chance", 25);
+		cfg.set("zombiepigman.enabled", true);
+		cfg.set("zombiepigman.chance", 20);
+		cfg.set("zombiepigman.cancelexisting", true);
+		cfg.set("zombiepigman.shoulddamage", true);
+		cfg.set("zombiepigman.enchant.enabled", true);
+		cfg.set("zombiepigman.enchant.chance", true);
+		cfg.set("zombiepigman.enchant.levelmin", 1);
+		cfg.set("zombiepigman.enchant.levelmax", 10);
 		this.saveConfig();
-		logObj.warning("[SuperGold] Config missing! This is normal if this is your first time running SuperGold!");
+		logObj.warning("[SuperGold] Writing default config.yml! This is normal if this is your first time running SuperGold!");
 	}
 }

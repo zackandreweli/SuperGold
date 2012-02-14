@@ -8,6 +8,10 @@ permissions:
     description: Access to all SuperGold features, INCLUDING commands. Admins only.
     children:
       supergold.blocks: true
+      supergold.ice: true
   supergold.blocks:
     description: Allow breaking of certain blocks with gold tools to drop Nether blocks.
+    default: op
+  supergold.ice:
+    description: Allow obtaining ice with a gold tool.
     default: op
