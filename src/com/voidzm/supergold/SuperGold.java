@@ -9,17 +9,23 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class SuperGold extends JavaPlugin {
-
+	
+	// Global config object for SuperGold.
 	public FileConfiguration cfg;
+	// Global plugin manager for SuperGold.
 	public PluginManager pluginManager;
+	// Global logger for SuperGold.
 	public Logger logObj = Logger.getLogger("Minecraft");
+	// Private instance of the object that listens for our events.
 	private final SuperGoldListener listener = new SuperGoldListener(this);
 	
 	public void onEnable() {
+		// Set up our events and log our enable message.
 		cfg = this.getConfig();
 		pluginManager =	 this.getServer().getPluginManager();
 		pluginManager.registerEvents(listener, this);
 		logObj.info("[SuperGold] v1.0.0 enabled!");
+		// If this config node does not exist, create the default config.
 		if(!cfg.contains("block.netherrack.enabled")) {
 			this.writeDefaultConfig();
 		}
@@ -30,6 +36,7 @@ public class SuperGold extends JavaPlugin {
 	}
 	
 	private void writeDefaultConfig() {
+		// Set all the default values, then save and log a message.
 		cfg.set("block.netherrack.enabled", true);
 		cfg.set("block.netherrack.source", 1);
 		List<Integer> netherrackList = new ArrayList<Integer>();
